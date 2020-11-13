@@ -22,39 +22,32 @@
 
 // Special positions are when a 1 has only 0's in its neighboring columns and rows
 
-// const numSpecial = (mat) => {
-//     let stack = [];
-//     for (let i = 0; i < mat.length; i++) {
-//         for (let j = 0; j < mat.length; j++) {
-//             let sum = 0;
-//             if(mat[i][j] === 1){
-//                 sum = mat[j].reduce((acc, curr) => {
-//                     return acc + curr
-//                 });
-//                 for(let a = 0; a < mat.length; a++){
-//                     sum = sum + mat[a][j]
-//                 }
-//                 stack.push(sum)
-//             }
-//         }
-//     }
-//     return stack.filter((el) => {
-//         el === 2
-//     }).length
-// };
-
 const numSpecial = (mat) => {
-    let numSpecial = 0;
-    for(let i = 0; i < mat.length; i++){
-        if(mat[i].reduce((acc, curr) => {return acc + curr}) === 1){
-        for(let j = 0; j < mat.length; j++){
-            if (mat[i][j] === 1){
-                console.log(j)
+    let num = 0;
+    let xAxis = {};
+    let yAxis = {};
+    for (let i = 0; i < mat.length; i++) {
+        let arr = mat[i];
+        for (let j = 0; j < arr.length; j++) {
+            let curr = arr[j]
+            //if the current number is 1, add its array index to the xAxis object
+            //add its individual number index to the yAxis object
+            // if the value of any key is more than one in the xAxis, it means that it has appeared more than once within the same array
+            //if the value of any key is more than one in the yAxis, it means the individual element index (j) has appeared more than once in that specific position
+            if (curr === 1) {
+                xAxis[i] ? xAxis[i] += 1 : xAxis[i] = 1
+                yAxis[j] ? yAxis[j] += 1 : yAxis[j] = 1
+            }
+        };
+    }
+        for (let key in xAxis) {
+            if (xAxis[key] === 1 && yAxis[key] === 1) {
+                num += 1
             }
         }
-    }
-    }
-};
-console.log(numSpecial([[1,0,0],
-                        [0,0,1],
-                        [1,0,0]]))
+    // return num
+    console.log(xAxis, yAxis, num)
+}
+numSpecial([[1, 0, 0],
+            [0, 0, 1],
+            [1, 0, 0]])
