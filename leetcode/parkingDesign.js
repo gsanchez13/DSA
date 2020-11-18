@@ -1,6 +1,11 @@
 const ParkingSystem = (big, medium, small) => {
     
 };
+//creates the parking system. 
+//The first array input will decide at index [0] how many big cars can fit.
+//second position at [1] will decide how many medium cars can fit
+//third position at [2] will decide how many small cars can fit
+//return another array with booleans, null being the return for the first array that creates the instance of the parking system class
 
 /** 
  * @param {number} carType
