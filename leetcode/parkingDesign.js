@@ -1,4 +1,4 @@
-var ParkingSystem = function(big, medium, small) {
+const ParkingSystem = (big, medium, small) => {
     
 };
 
