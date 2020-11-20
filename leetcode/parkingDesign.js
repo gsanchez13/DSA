@@ -1,27 +1,29 @@
-// const ParkingSystem = (big, medium, small) => {
-//     ParkingSystem.bigCars = big;
-//     ParkingSystem.mediumCars= medium;
-//     ParkingSystem.smallCars = small
-// };
 var ParkingSystem = function(big, medium, small) {
     this.bigCars = big;
     this.mediumCars= medium;
     this.smallCars = small;
 };
-//creates the parking system. 
+//creates the parking system class. 
 //The first input will decide how many big cars can fit.
 //second input will decide how many medium cars can fit
 //third input will decide how many small cars can fit
-let myTest = new ParkingSystem(3,2,1)
-console.log(myTest.bigCars, myTest.mediumCars, myTest.smallCars)
 /** 
  * @param {number} carType
  * @return {boolean}
  */
-// ParkingSystem.prototype.addCar = function(carType) {
-//     let parkingObj = ParkingSystem
-//     //modify the original class
-// };
+ParkingSystem.prototype.addCar = function(carType) {
+    if(carType === 3){
+        if(this.bigCars > 0){
+            this.bigCars --;
+            return true
+        }
+        else {
+            return false
+        }
+    }
+};
+let myTest = new ParkingSystem(3,2,1)
+console.log([myTest.addCar(3),myTest.addCar(3),myTest.addCar(3),myTest.addCar(3)])
 
 /** 
  * Your ParkingSystem object will be instantiated and called as such:
