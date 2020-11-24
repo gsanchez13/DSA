@@ -17,6 +17,14 @@ ParkingSystem.prototype.addCar = function(carType) {
             this.bigCars --;
             return true
         }
+        else if(this.mediumCars > 0){
+            this.mediumCars --;
+            return true
+        }
+        else if(this.smallCars > 0) {
+            this.smallCars --
+            return true
+        }
         else {
             return false
         }
