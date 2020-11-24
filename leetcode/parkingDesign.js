@@ -12,32 +12,43 @@ var ParkingSystem = function (big, medium, small) {
  * @return {boolean}
  */
 ParkingSystem.prototype.addCar = function (carType) {
-    if (carType === 3) {
+    if (Array.isArray(carType)) {
+        return null
+    }
+    else if (carType === 3) {
         if (this.bigCars > 0) {
             this.bigCars--;
             return true
         }
+        else {
+            return false
+        }
     }
-    if (carType === 2) {
+    else if (carType === 2) {
         if (this.mediumCars > 0) {
             this.mediumCars--;
             return true
         }
+        else {
+            return false
+        }
     }
-    if (carType === 1) {
+    else if (carType === 1) {
         if (this.smallCars > 0) {
             this.smallCars--
             return true
         }
-    }
-    else {
-        return false
+        else {
+            return false
+        }
     }
 };
 
-let myTest = new ParkingSystem(3, 2, 1)
-console.log([myTest.addCar(3), myTest.addCar(3), myTest.addCar(3), myTest.addCar(3), myTest.addCar(1)])
+let myTest = new ParkingSystem(1, 1, 0)
+console.log([myTest.addCar([1, 1, 0]), myTest.addCar(1), myTest.addCar(2), myTest.addCar(3), myTest.addCar(1)])
 
+// ["ParkingSystem","addCar","addCar","addCar","addCar"]
+// [[1,1,0],[1],[2],[3],[1]]
 /**
  * Your ParkingSystem object will be instantiated and called as such:
  * var obj = new ParkingSystem(big, medium, small)
