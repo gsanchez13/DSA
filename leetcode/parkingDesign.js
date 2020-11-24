@@ -1,6 +1,6 @@
-var ParkingSystem = function(big, medium, small) {
+var ParkingSystem = function (big, medium, small) {
     this.bigCars = big;
-    this.mediumCars= medium;
+    this.mediumCars = medium;
     this.smallCars = small;
 };
 //creates the parking system class. 
@@ -11,29 +11,34 @@ var ParkingSystem = function(big, medium, small) {
  * @param {number} carType
  * @return {boolean}
  */
-ParkingSystem.prototype.addCar = function(carType) {
-    if(carType === 3){
-        if(this.bigCars > 0){
-            this.bigCars --;
+ParkingSystem.prototype.addCar = function (carType) {
+    if (carType === 3) {
+        if (this.bigCars > 0) {
+            this.bigCars--;
             return true
-        }
-        else if(this.mediumCars > 0){
-            this.mediumCars --;
-            return true
-        }
-        else if(this.smallCars > 0) {
-            this.smallCars --
-            return true
-        }
-        else {
-            return false
         }
     }
+    if (carType === 2) {
+        if (this.mediumCars > 0) {
+            this.mediumCars--;
+            return true
+        }
+    }
+    if (carType === 1) {
+        if (this.smallCars > 0) {
+            this.smallCars--
+            return true
+        }
+    }
+    else {
+        return false
+    }
 };
-let myTest = new ParkingSystem(3,2,1)
-console.log([myTest.addCar(3),myTest.addCar(3),myTest.addCar(3),myTest.addCar(3)])
 
-/** 
+let myTest = new ParkingSystem(3, 2, 1)
+console.log([myTest.addCar(3), myTest.addCar(3), myTest.addCar(3), myTest.addCar(3), myTest.addCar(1)])
+
+/**
  * Your ParkingSystem object will be instantiated and called as such:
  * var obj = new ParkingSystem(big, medium, small)
  * var param_1 = obj.addCar(carType)
@@ -44,7 +49,7 @@ console.log([myTest.addCar(3),myTest.addCar(3),myTest.addCar(3),myTest.addCar(3)
 
 // ParkingSystem(int big, int medium, int small) Initializes object of the ParkingSystem class. The number of slots for each parking space are given as part of the constructor.
 // bool addCar(int carType) Checks whether there is a parking space of carType for the car that wants to get into the parking lot. carType can be of three kinds: big, medium, or small, which are represented by 1, 2, and 3 respectively. A car can only park in a parking space of its carType. If there is no space available, return false, else park the car in that size space and return true.
- 
+
 
 // Example 1:
 
