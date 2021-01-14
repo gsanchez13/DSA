@@ -28,12 +28,12 @@ const addTwoNumbers = (l1, l2) => {
         for (let i = arr.length - 1; i >= 0; i--) {
             num += arr[i]
         }
-        return Number(num)
+        return BigInt(Number(num))
     };
 
     let l1Num = getBackwardsNum(l1Arr);
     let l2Num = getBackwardsNum(l2Arr);
-    let sumOfLL = l1Num + l2Num;
+    let sumOfLL = BigInt(l1Num + l2Num);
 
     const createBackwardsLL = (num) => {
         let numArr = num.toString().split("");
