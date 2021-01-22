@@ -8,10 +8,10 @@
  */
 
 function ListNode(val, next) {
-    this.val = (val===undefined ? 0 : val)
-    this.next = (next===undefined ? null : next)
+    this.val = (val === undefined ? 0 : val)
+    this.next = (next === undefined ? null : next)
 }
-let l1 = new ListNode(1)
+let l1 = new ListNode(6)
 let l2 = new ListNode(2)
 let l3 = new ListNode(6)
 let l4 = new ListNode(3)
@@ -28,22 +28,20 @@ l6.next = l7
 
 let num = 6
 
-var removeElements = function(head, val) {
-    let answer = new ListNode(curr.val)
-    let curr = head
-    while(curr){
-        if(curr.val != val){
-           if(!answer){
-               answer = new ListNode(curr.val)
-               let answerCurr = answer
-           }
-            else {
-                answer.next = curr.val
+// expected outcome 2 -> 3 -> 4 -> 5
+var removeElements = function (head, val) {
+    let curr = head;
+    let prev = head;
+    while (curr) {
+        if (curr.val === val) {
+            if (curr === head) {
+                head = curr.next
             }
-        let next = curr.next
-        curr = next
         }
-    } return answer
+        prev = curr
+        curr = curr.next
+    }
+    return head
 };
 
-console.log(l1, num)
+removeElements(l1, num)
