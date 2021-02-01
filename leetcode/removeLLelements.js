@@ -30,28 +30,45 @@ let num = 6
 
 // input = 6 -> 2 -> 6 -> 3 -> 4 -> 5 -> 6
 // expected outcome 2 -> 3 -> 4 -> 5
-var removeElements = function (head, val) {
-    let curr = head;
-    let prev = head;
-    let next = head;
-    while (curr) {
-        if (curr.val === val) {
-            if (curr === head) {
-                head = curr.next
-                // if first node is value we're looking for, replace head value with next value
-                // linked list now begins at next node since curr is also incremented to next node
-                // prev is given the current value before curr is updated to the next
+// var removeElements = function (head, val) {
+//     let curr = head;
+//     let prev = head;
+//     let next = head;
+//     while (curr) {
+//         if (curr.val === val) {
+//             if (curr === head) {
+//                 head = curr.next
+//                 // if first node is value we're looking for, replace head value with next value
+//                 // linked list now begins at next node since curr is also incremented to next node
+//                 // prev is given the current value before curr is updated to the next
+//             }
+//             else {
+//                 prev.next = next
+//             }
+//         }
+//         prev = curr
+//         curr = curr.next
+//         next = curr.next
+//         console.log("curr", prev.val, curr.val, curr.next.val)
+//     }
+//     return head
+// };
+
+const removeElements = (head, val) => {
+    let output = null;
+    while (head) {
+        if (head.val !== val) {
+            if (!output) {
+                output = new ListNode(head.val)
+                ref = output
             }
             else {
-                prev.next = next
+                ref.next = new ListNode(head.val)
+                ref = ref.next
             }
         }
-        prev = curr
-        curr = curr.next
-        next = curr.next
-        console.log("curr", prev.val, curr.val, curr.next.val)
+        head = head.next
     }
-    return head
-};
-
+    return output
+}
 removeElements(l1, num)
