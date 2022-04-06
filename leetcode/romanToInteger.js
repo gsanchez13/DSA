@@ -8,3 +8,15 @@
 // C can be placed before D (500) and M (1000) to make 400 and 900.
 // Given a roman numeral, convert it to an integer.
 
+
+// @param {string} s
+// @return {number}
+
+var romanToInt = function (s) {
+
+};
+//1. set result to 0 (will have value by end)
+//2. convert string into array to iterate through it (split)
+//3. set variables equal to their value
+//4. set rules to how variables should behave
+//5. have them return the value of the input
