@@ -29,7 +29,7 @@ l6.next = l7
 let num = 6
 
 // input = 6 -> 2 -> 6 -> 3 -> 4 -> 5 -> 6
-// expected outcome 2 -> 3 -> 4 -> 5
+// // expected outcome 2 -> 3 -> 4 -> 5
 // var removeElements = function (head, val) {
 //     let curr = head;
 //     let prev = head;
@@ -63,6 +63,7 @@ const removeElements = (head, val) => {
                 ref = output
             }
             else {
+                // head.next = new ListNode(head.val)
                 ref.next = new ListNode(head.val)
                 ref = ref.next
             }
@@ -71,4 +72,4 @@ const removeElements = (head, val) => {
     }
     return output
 }
-removeElements(l1, num)
+console.log(removeElements(l1, num))
