@@ -15,7 +15,7 @@
 var romanToInt = function (s) {
     let result = 0;
     let arrStr = s.split();
-    
+
     let I = 1;
     let V = 5;
     let X = 10;
@@ -23,7 +23,28 @@ var romanToInt = function (s) {
     let C = 100
     let D = 500;
     let M = 1000;
-    
+
+    for (let i = 0; i < arrStr.length; i++) {
+        if (arrStr[i] === "V") {
+            if (arrStr[i - 1] === "I") {
+                console.log('variables before V', arrStr[i], arrStr[i - 1])
+                result += 4
+            }
+        }
+        else if (arrStr[i] === "X") {
+            if (arrStr[i - 1] === "I") {
+                console.log('variables before X', arrStr[i], arrStr[i - 1])
+                result += 9
+            }
+        }
+        else if (arrStr[i] === "L") {
+            if (arrStr[i - 1] === "X") {
+                result += 50
+            }
+        }
+    }
+
+    return result;
 };
 //1. set result to 0 (will have value by end)
 //2. convert string into array to iterate through it (split)
