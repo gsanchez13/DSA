@@ -13,7 +13,17 @@
 // @return {number}
 
 var romanToInt = function (s) {
-
+    let result = 0;
+    let arrStr = s.split();
+    
+    let I = 1;
+    let V = 5;
+    let X = 10;
+    let L = 50;
+    let C = 100
+    let D = 500;
+    let M = 1000;
+    
 };
 //1. set result to 0 (will have value by end)
 //2. convert string into array to iterate through it (split)
