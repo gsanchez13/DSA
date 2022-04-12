@@ -39,7 +39,12 @@ var romanToInt = function (s) {
         }
         else if (arrStr[i] === "L") {
             if (arrStr[i - 1] === "X") {
-                result += 50
+                result += 40
+            }
+        }
+        else if (arrStr[i] === "C") {
+            if (arrStr[i - 1]) {
+                result += 90
             }
         }
     }
