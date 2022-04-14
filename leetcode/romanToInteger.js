@@ -47,6 +47,11 @@ var romanToInt = function (s) {
                 result += 90
             }
         }
+        else if(arrStr[i] === "D"){
+            if(arrStr[i - 1] === "C"){
+                result += 500
+            }
+        }
     }
 
     return result;
