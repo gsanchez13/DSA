@@ -8,8 +8,9 @@
 //Returns: NONE
 //Prints: distinct element pairs that share the minimal absolute difference, displayed in ascending order with each pair separated by one space on a single line.
 
-//1. Create variable to hold key value pairs and difference
-//2. Loop through array to find the minimum difference and build object
+//1. Create variable to hold key value pairs and the minimum difference that each pair will have to comply with
+//2. Loop through array to find the minimum difference and build object with the minimum difference as key and the pair of integers that comply with that as the value
+//3. print the values that comply with the condition of having the key as the minimum difference
 
 const closestNums = (arr) => {
 };
