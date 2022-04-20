@@ -13,4 +13,22 @@
 //3. print the values that comply with the condition of having the key as the minimum difference
 
 const closestNums = (arr) => {
+    let numPairs = {};
+    let sortedArr = arr.sort((a,b) => {a - b});
+    let minDiff ;
+
+    for(let i = 0; i < sortedArr.length; i++){
+        let smaller = sortedArr[i];
+        let larger = sortedArr[i+1];
+        let diff = Math.abs(larger - smaller);
+
+        if(!minDiff){
+            minDiff = diff
+        }
+        else{
+            if(diff < minDiff){
+                minDiff = diff
+            }
+        }
+    }
 };
