@@ -14,8 +14,8 @@
 
 const closestNums = (arr) => {
     let numPairs = {};
-    let sortedArr = arr.sort((a,b) => {a - b});
-    let minDiff ;
+    let sortedArr = arr.sort((a,b) => {return a - b});
+    let minDiff;
 
     for(let i = 0; i < sortedArr.length; i++){
         let smaller = sortedArr[i];
@@ -25,10 +25,22 @@ const closestNums = (arr) => {
         if(!minDiff){
             minDiff = diff
         }
-        else{
-            if(diff < minDiff){
+        else if(diff < minDiff){
                 minDiff = diff
-            }
+        }
+        if(!numPairs[diff]){
+            numPairs[diff] = [{
+                smaller: smaller,
+                larger: larger
+            }]
+        }
+        else {
+            numPairs[diff].push({smaller: smaller, larger: larger})
         }
     }
+    let smallestDiff = numPairs[minDiff];
+    smallestDiff.forEach(el => {
+        console.log(el.smaller, el.larger)
+    });
 };
+closestNums([6,2,4,10])
