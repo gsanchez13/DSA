@@ -8,13 +8,13 @@
 //Complete the numberOfCharactersEscaped function in the editor below
 //numberOfCharactersEscaped function in that editor below
 
-//1.loop through string
-//2. check if it meets conditions of being lowercase, having a ! before and a # after
-// let prev = str[i - 1];
-// let curr = str[i];
-// if ((/[a-z]/).test(curr) && prev === "!"){
-//     console.log(curr)
-// }
+//1. create a variable that returns the amount of times the character has escaped
+//2. create variable that can hold boolean if there are hash pairs - first one is false, once it finds a hash pair then it can switch to true
+//3. loop through string
+//4. if variable is a hash, set it to the opposite. covers its grounds if it already has a pair and sets to uneven.
+//5. sets variable for next character, sets check to make sure its a lowercase char, that it is between an even (true) amount of hashes, and it currenty is a "!"
+//6. adds the amount of times it has "escaped" aka met conditions to return val and returns it
+
 const numberOfCharactersEscaped = (str) => {
     let timesEscaped = 0;
     let hashFinder = false;
@@ -23,12 +23,11 @@ const numberOfCharactersEscaped = (str) => {
             hashFinder = !hashFinder
             continue
         }
-        let next = str[i +1];
+        let next = str[i + 1];
         if ((/[a-z]/).test(next) && hashFinder && str[i] === "!") {
             timesEscaped += 1
         }
     }
-    console.log(timesEscaped)
     return timesEscaped
 };
 numberOfCharactersEscaped('#ab!c#de!f')
