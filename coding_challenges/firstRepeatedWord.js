@@ -2,5 +2,17 @@
 //ex: "We work hard because hard work pays."
 
 const firstRepeatedWord = (str) => {
-
+    let repeatTracker = {};
+    let strArr = str.split(' ');
+    for (let i = 0; i < strArr.length; i++) {
+        if (!repeatTracker[strArr[i]]) {
+            repeatTracker[strArr[i]] = 1
+        }
+        else if (strArr[i] !== '') {
+            return strArr[i]
+        }
+    }
 };
+let test = "We work hard because hard work pays."
+
+console.log(firstRepeatedWord(test))
