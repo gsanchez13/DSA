@@ -18,5 +18,7 @@ const firstRepeatedWord = (str) => {
     }
 };
 let test = "We work hard because hard work pays."
+let test2 = "We pays alot because hard work pays."
 
-console.log(firstRepeatedWord(test))
+console.log(firstRepeatedWord(test2))
+//solution fails with punctuation
