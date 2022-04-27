@@ -14,7 +14,6 @@
 
 var romanToInt = function (s) {
     let result = 0;
-    let arrStr = s.split();
 
     let I = 1;
     let V = 5;
@@ -24,31 +23,31 @@ var romanToInt = function (s) {
     let D = 500;
     let M = 1000;
 
-    for (let i = 0; i < arrStr.length; i++) {
-        if (arrStr[i] === "V") {
-            if (arrStr[i - 1] === "I") {
-                console.log('variables before V', arrStr[i], arrStr[i - 1])
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === "V") {
+            if (s[i - 1] === "I") {
+                console.log('variables before V', s[i], s[i - 1])
                 result += 4
             }
         }
-        else if (arrStr[i] === "X") {
-            if (arrStr[i - 1] === "I") {
-                console.log('variables before X', arrStr[i], arrStr[i - 1])
+        else if (s[i] === "X") {
+            if (s[i - 1] === "I") {
+                console.log('variables before X', s[i], s[i - 1])
                 result += 9
             }
         }
-        else if (arrStr[i] === "L") {
-            if (arrStr[i - 1] === "X") {
+        else if (s[i] === "L") {
+            if (s[i - 1] === "X") {
                 result += 40
             }
         }
-        else if (arrStr[i] === "C") {
-            if (arrStr[i - 1]) {
+        else if (s[i] === "C") {
+            if (s[i - 1]) {
                 result += 90
             }
         }
-        else if(arrStr[i] === "D"){
-            if(arrStr[i - 1] === "C"){
+        else if(s[i] === "D"){
+            if(s[i - 1] === "C"){
                 result += 500
             }
         }
@@ -61,3 +60,4 @@ var romanToInt = function (s) {
 //3. set variables equal to their value
 //4. set rules to how variables should behave
 //5. have them return the value of the input
+
