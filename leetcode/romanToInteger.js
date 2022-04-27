@@ -38,7 +38,8 @@ const romanToInt = (str) => {
     return result;
 };
 //1. set result to 0 (will have value by end)
-//2. convert string into array to iterate through it (split)
-//3. set variables equal to their value
-//4. set rules to how variables should behave
-//5. have them return the value of the input
+//2. set variables equal to their value in a hash/obj, key is letter and value is number
+//3. begin loop and set current and next variables as current index and current index + 1 OR as 0 in case next variable has no value aka is at end of loop. this is all within the hash, wherethe index in the string ends up being the kay value numerical value in the object
+//4. if the next value in the string is greater than the current, then subtract the current value from the next
+//5. else if the opposite is true (curr > next) then add the current value to the result
+//6. return results
