@@ -12,44 +12,26 @@
 // @param {string} s
 // @return {number}
 
-var romanToInt = function (s) {
+const romanToInt = (str) => {
     let result = 0;
+    let obj = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000,
+    };
 
-    let I = 1;
-    let V = 5;
-    let X = 10;
-    let L = 50;
-    let C = 100
-    let D = 500;
-    let M = 1000;
-
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] === "V") {
-            if (s[i - 1] === "I") {
-                console.log('variables before V', s[i], s[i - 1])
-                result += 4
-            }
+    for (let i = 0; i < str.length; i++) {
+        let curr = obj[str[i]];
+        let next = obj[str[i + 1]] || 0;
+        if (next > curr) {
+            result -= curr
         }
-        else if (s[i] === "X") {
-            if (s[i - 1] === "I") {
-                console.log('variables before X', s[i], s[i - 1])
-                result += 9
-            }
-        }
-        else if (s[i] === "L") {
-            if (s[i - 1] === "X") {
-                result += 40
-            }
-        }
-        else if (s[i] === "C") {
-            if (s[i - 1]) {
-                result += 90
-            }
-        }
-        else if(s[i] === "D"){
-            if(s[i - 1] === "C"){
-                result += 500
-            }
+        else {
+            result += curr
         }
     }
 
@@ -60,4 +42,3 @@ var romanToInt = function (s) {
 //3. set variables equal to their value
 //4. set rules to how variables should behave
 //5. have them return the value of the input
-
