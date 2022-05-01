@@ -9,12 +9,14 @@ const firstRepeatedWord = (str) => {
     let repeatTracker = {};
     let strArr = str.split(' ');
     for (let i = 0; i < strArr.length; i++) {
-        if (!repeatTracker[strArr[i]]) {
-            repeatTracker[strArr[i]] = 1
-        }
-        else if (strArr[i] !== '') {
-            return strArr[i]
-        }
+        let curr = strArr[i];
+        if(curr.match(/[.,:!?]/)) {curr.replace([/^\w\s/], "")}
+            if (!repeatTracker[curr]) {
+                repeatTracker[curr] = 1
+            }
+            else if (curr !== '') {
+                return curr
+            }
     }
 };
 let test = "We work hard because hard work pays."
@@ -22,3 +24,5 @@ let test2 = "We pays alot because hard work pays."
 
 console.log(firstRepeatedWord(test2))
 //solution fails with punctuation
+//        let curr = strArr[i];
+//if( !!curr.match(/^[.,:!?]/))
