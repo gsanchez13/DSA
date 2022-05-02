@@ -17,15 +17,21 @@
 // }
 var lengthOfLongestSubstring = function (s) {
     let subStr = "";
+    let ans = ";"
     let myset = new Set();
     for (let i = 0; i < s.length; i++) {
         let curr = s[i];
-        if (curr.match(/\w/) && !subStr.includes(curr)) {
-            myset.add(curr, 1)
-            subStr += curr
+        if (curr.match(/\w/)) {
+            if (!myset.has(curr)) {
+                myset.add(curr, 1)
+                subStr += curr
+            }
+            else {
+                ans = subStr
+            }
         }
     }
-    console.log(subStr)
+    console.log(myset, subStr, ans)
     return subStr.length
 };
 let test1 = "abcabcbb"
