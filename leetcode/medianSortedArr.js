@@ -27,12 +27,11 @@ var findMedianSortedArrays = function (nums1, nums2) {
         let first = totalArr[mid]
         let second = totalArr[mid + 1]
         median = ((first + second) / 2).toFixed(5)
-        return median
     }
     else {
         median = totalArr[Math.floor(arrLength / 2)].toFixed(5);
-        return median
     }
+    return median
 };
 
 let test1Arr1 = [1, 2]
