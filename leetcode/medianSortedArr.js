@@ -18,14 +18,32 @@
 
 //one of both arrays can be empty
 //comination of both arrays will have a length of at least 1 - 2000
-var findMedianSortedArrays = function(nums1, nums2) {
-    let totalArr = nums1.concat(nums2).sort();
+var findMedianSortedArrays = function (nums1, nums2) {
+    let totalArr = nums1.concat(nums2).sort(function (a, b) { return a - b });
     let arrLength = totalArr.length;
-    let mid = Math.floor(arrLength / 2)
-    console.log(mid)
+    let median;
+    if (arrLength % 2 === 0) {
+        let mid = (arrLength / 2) - 1;
+        let first = totalArr[mid]
+        let second = totalArr[mid + 1]
+        median = ((first + second) / 2).toFixed(5)
+        return median
+    }
+    else {
+        median = totalArr[Math.floor(arrLength / 2)].toFixed(5);
+        return median
+    }
 };
 
-let test1Arr1 = [1,2]
-let test1Arr2 = [3,4]
+let test1Arr1 = [1, 2]
+let test1Arr2 = [3, 4]
 
-findMedianSortedArrays(test1Arr1, test1Arr2)
+let test2Arr1 = [1, 3]
+let test2Arr2 = [2]
+
+let test3Arr1 = [3]
+let test3Arr2 = [-2, -1]
+console.log(findMedianSortedArrays(test1Arr1, test1Arr2));
+console.log(findMedianSortedArrays(test2Arr1, test2Arr2));
+console.log(findMedianSortedArrays(test3Arr1, test3Arr2));
+
