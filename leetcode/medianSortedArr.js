@@ -16,6 +16,16 @@
 // 1 <= m + n <= 2000
 // -106 <= nums1[i], nums2[i] <= 106
 
+//one of both arrays can be empty
+//comination of both arrays will have a length of at least 1 - 2000
 var findMedianSortedArrays = function(nums1, nums2) {
-    
+    let totalArr = nums1.concat(nums2).sort();
+    let arrLength = totalArr.length;
+    let mid = Math.floor(arrLength / 2)
+    console.log(mid)
 };
+
+let test1Arr1 = [1,2]
+let test1Arr2 = [3,4]
+
+findMedianSortedArrays(test1Arr1, test1Arr2)
