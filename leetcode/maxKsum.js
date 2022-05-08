@@ -20,34 +20,46 @@
 //3. loop through arr and if condition is met, splice out numbers in condition
 //4. add all times condition is met to return var
 
+// var maxOperations = function (nums, k) {
+//     let ops = 0;
+//     let tracker = new Map();
+//     if (nums.length === 0) return ops;
+//     for (let i = 0; i < nums.length; i++) {
+//         let curr = nums[i];
+//         if (!tracker[i]) {
+//             tracker[i] = curr
+//         }
+//     }
+//     for (let key1 in tracker) {
+//         let currVal = tracker[key1]
+//         for (let key2 in tracker){
+//             if(key1 !== key2){
+//                 let nextVal = tracker[key2]
+//                 if(currVal + nextVal === k){
+//                     ops += 1;
+//                     delete tracker[key1]
+//                     //not properly deleting key1 here and is being reused
+//                     delete tracker[key2]
+//                 }
+//             }
+//         }
+//     }
+//     return ops
+// };
+
 var maxOperations = function (nums, k) {
     let ops = 0;
-    let tracker = new Map();
+    let tracker = {};
     if (nums.length === 0) return ops;
     for (let i = 0; i < nums.length; i++) {
         let curr = nums[i];
-        if (!tracker[i]) {
-            tracker[i] = curr
+        if (!tracker[k - curr]) {
+            tracker[k - curr] = 1
         }
     }
-    for (let key1 in tracker) {
-        let currVal = tracker[key1]
-        for (let key2 in tracker){
-            if(key1 !== key2){
-                let nextVal = tracker[key2]
-                if(currVal + nextVal === k){
-                    ops += 1;
-                    delete tracker[key1]
-                    //not properly deleting key1 here and is being reused
-                    delete tracker[key2]
-                }
-            }
-        }
-    }
-    return ops
-};
-
+    return tracker
+}
 let nums1 = [1, 2, 3, 4], k1 = 5;
 let nums2 = [3, 1, 3, 4, 3], k2 = 6;
-console.log(maxOperations(nums1, k1));
+// console.log(maxOperations(nums1, k1));
 console.log(maxOperations(nums2, k2));
