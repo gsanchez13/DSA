@@ -22,62 +22,43 @@
 
 var maxOperations = function (nums, k) {
     let ops = 0;
-    let tracker = {};
     if (nums.length === 0) return ops;
-    for (let i = 0; i < nums.length; i++) {
-        let curr = nums[i]
-        if (!tracker[curr]) {
-            tracker[curr] = 1
-        }
-        else {
-            tracker[curr] += 1
-        }
-    }
-    for (let key1 in tracker) {
-        for(let i = 0; i < nums.length; i++){
-            if(parseInt(key1) + nums[i] === k){
-                console.log(key1, nums[i])
-                ops += 1
+    let nums2 = [...nums]
+    for (let i = 0; i < nums2.length; i++) {
+        for (let j = 0; j < nums2.length; j++) {
+            if (i !== j && nums2[i] + nums2[j] === k) {
+                ops++
+                nums2.splice(i, 1)
+                nums2.splice(j, 1)
             }
         }
     }
     return ops
-    // console.log(tracker)
 };
 
-// var maxOperations = function (nums, k) {
-//     let ops = 0;
-//     let tracker = {};
-//     if (nums.length === 0) return ops;
-//     for (let i = 0; i < nums.length; i++) {
-//         let curr = nums[i];
-//         if (!tracker[k - curr]) {
-//             tracker[k - curr] = 1
-//         }
-//         else {
-//             tracker[k - curr] += 1
-//         }
-//     }
-//     for(let key in tracker){
-
-//     }
-//     return tracker
-// }
 let nums1 = [1, 2, 3, 4], k1 = 5;
 let nums2 = [3, 1, 3, 4, 3], k2 = 6;
+let nums3 = [4, 4, 1, 3, 1, 3, 2, 2, 5, 5, 1, 5, 2, 1, 2, 3, 5, 4], k3 = 2
 // console.log(maxOperations(nums1, k1));
-console.log(maxOperations(nums2, k2));
-    // for (let key1 in tracker) {
-    //     let currVal = tracker[key1]
-    //     for (let key2 in tracker) {
-    //         if (key1 !== key2) {
-    //             let nextVal = tracker[key2]
-    //             if (currVal + nextVal === k) {
-    //                 ops += 1;
-    //                 delete tracker[key1]
-    //                 //not properly deleting key1 here and is being reused
-    //                 delete tracker[key2]
-    //             }
-    //         }
-    //     }
-    // }
+// console.log(maxOperations(nums2, k2));
+console.log(maxOperations(nums3, k3));
+
+// for (let i = 0; i < nums.length; i++) {
+//     let curr = nums[i]
+//     if (!tracker[curr]) {
+//         tracker[curr] = 1
+//     }
+//     else {
+//         tracker[curr] += 1
+//     }
+// }
+// for (let key1 in tracker) {
+//     for(let i = 0; i < nums.length; i++){
+//         if(parseInt(key1) + nums[i] === k){
+//             console.log(key1, nums[i])
+//             ops += 1
+//             nums.splice(i, 1)
+//             console.log(nums)
+//         }
+//     }
+// }
