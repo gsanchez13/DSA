@@ -39,8 +39,8 @@ var maxOperations = function (nums, k) {
 let nums1 = [1, 2, 3, 4], k1 = 5;
 let nums2 = [3, 1, 3, 4, 3], k2 = 6;
 let nums3 = [4, 4, 1, 3, 1, 3, 2, 2, 5, 5, 1, 5, 2, 1, 2, 3, 5, 4], k3 = 2
-// console.log(maxOperations(nums1, k1));
-// console.log(maxOperations(nums2, k2));
+console.log(maxOperations(nums1, k1));
+console.log(maxOperations(nums2, k2));
 console.log(maxOperations(nums3, k3));
 
 // for (let i = 0; i < nums.length; i++) {
