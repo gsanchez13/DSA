@@ -52,10 +52,10 @@ var lengthOfLongestSubstring = function (s) {
         let curr = s[i];
         if (map.has(curr)) {
             j = Math.max(map.get(curr), j);
-            //sets j =  to the larger of the two, map[curr] or j
+            //sets j = to the larger of the two, map[curr] or j
         }
         length = Math.max(length, i - j + 1);
-        //sets length =  the greater of the two, length, or  
+        //sets length = to larger of the two, either existing length or current index minus inner loop index, plus one
         map.set(curr, i + 1);
     }
 
@@ -69,8 +69,8 @@ let test5 = "au"
 let test6 = "aab"
 
 console.log(lengthOfLongestSubstring(test1));
-console.log(lengthOfLongestSubstring(test2));
-console.log(lengthOfLongestSubstring(test3));
-console.log(lengthOfLongestSubstring(test4));
-console.log(lengthOfLongestSubstring(test5));
-console.log(lengthOfLongestSubstring(test6));
+// console.log(lengthOfLongestSubstring(test2));
+// console.log(lengthOfLongestSubstring(test3));
+// console.log(lengthOfLongestSubstring(test4));
+// console.log(lengthOfLongestSubstring(test5));
+// console.log(lengthOfLongestSubstring(test6));
