@@ -22,15 +22,12 @@
 
 var maxOperations = function (nums, k) {
     let ops = 0;
+    let tracker = {};
     if (nums.length === 0) return ops;
-    let nums2 = [...nums]
-    for (let i = 0; i < nums2.length; i++) {
-        for (let j = 0; j < nums2.length; j++) {
-            if (i !== j && nums2[i] + nums2[j] === k) {
-                ops++
-                nums2.splice(i, 1)
-                nums2.splice(j, 1)
-            }
+    for (let i = 0; i < nums.length; i++) {
+        let curr = nums[i];
+        if (!tracker[k - curr]) {
+            tracker[k - curr] = 1
         }
     }
     return ops
