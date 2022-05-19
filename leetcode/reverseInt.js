@@ -22,3 +22,7 @@ function reverse(n) {
 let test1 = 123
 let test2 = -321
 let test3 = 21
+
+console.log(reverse(test1))
+console.log(reverse(test2))
+console.log(reverse(test3))
