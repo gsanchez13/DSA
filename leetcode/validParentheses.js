@@ -12,7 +12,7 @@
 // Output: false
 
 var isValid = function (s) {
-    let ans = 0;
+    let ans = 0
     for (let i = 0, j = 1; i < s.length; i++, j++) {
         let curr = s[i]
         let next = s[j]
@@ -34,4 +34,9 @@ var isValid = function (s) {
                 break;
         }
     }
+    return ans >= 1 ? true : false;
 };
+
+console.log(isValid("()[]{}"))
+console.log(isValid("(]"))
+console.log(isValid("()"))
