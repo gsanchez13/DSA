@@ -16,27 +16,22 @@ var isValid = function (s) {
     for (let i = 0, j = 1; i < s.length; i++, j++) {
         let curr = s[i]
         let next = s[j]
-        switch (curr) {
-            case "(":
-                if (next === ")") {
-                    ans += 1
-                }
-                break;
-            case "[":
-                if(next === "]"){
-                    ans += 1
-                }
-            case "{":
-                if(next === "}"){
-                    ans += 1
-                }
-            default:
-                break;
+        if (curr === "(" && next === ")" || curr === "[" && next === "]" || curr === "{" && next === "}") {
+            ans += 1
+             i = i + 2
+             j = j + 2
+            console.log(curr, next)
+        }
+        else {
+            console.log(curr, next)
+            ans += 0
+            break
         }
     }
     return ans >= 1 ? true : false;
 };
 
-console.log(isValid("()[]{}"))
-console.log(isValid("(]"))
-console.log(isValid("()"))
+// console.log(isValid("()[]{}"))
+// console.log(isValid("(]"))
+// console.log(isValid("()"))
+console.log(isValid("(){}}{"))
