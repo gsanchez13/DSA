@@ -18,8 +18,8 @@ var isValid = function (s) {
         let next = s[j]
         if (curr === "(" && next === ")" || curr === "[" && next === "]" || curr === "{" && next === "}") {
             ans += 1
-             i = i + 2
-             j = j + 2
+            i = i + 2
+            j = j + 2
             console.log(curr, next)
         }
         else {
@@ -30,24 +30,23 @@ var isValid = function (s) {
     }
     return ans >= 1 ? true : false;
 };
-var isValid = function (s) {
-const bracketsMap = {
-	"(" : ")",
-	"[" : "]",
-	"{" : "}",
-}
 
-let str = "";
-for (let i = 0; i < s.length; i++) {
-	if (!bracketsMap[s[i]] && bracketsMap[str[str.length -1]] !== s[i]) {
-		return false;
-	}
-	str = bracketsMap[s[i]] ? str + s[i] : str.slice(0, -1);        
-}
-
-return str === "";
+var isValid2 = function (s) {
+    const bracketsMap = {
+        "(": ")",
+        "[": "]",
+        "{": "}",
+    }
+    let str = "";
+    for (let i = 0; i < s.length; i++) {
+        if (!bracketsMap[s[i]] && bracketsMap[str[str.length - 1]] !== s[i]) {
+            return false;
+        }
+        str = bracketsMap[s[i]] ? str + s[i] : str.slice(0, -1);
+        return str === ""
+    }
 }
 // console.log(isValid("()[]{}"))
 // console.log(isValid("(]"))
 // console.log(isValid("()"))
-console.log(isValid("(){}}{"))
+console.log(isValid2("(){}}{"))
