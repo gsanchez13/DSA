@@ -5,10 +5,22 @@
 // Return the maximum amount of water a container can store.
 
 // Notice that you may not slant the container.
-var maxArea = function(height) {
-    // if(){
-
-    // }
+var maxArea = function (height) {
+    let first;
+    let second;
+    let max;
+    for (let i = 0; i < height.length; i++) {
+        let curr = height[i];
+        if (!first) {
+            first = curr
+        }
+        else if(curr >= first){
+            second = first;
+            first = curr
+            max = first * second
+        }
+    }
+    return max
 };
 // Input: height = [1,8,6,2,5,4,8,3,7]
 // Output: 49
