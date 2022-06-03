@@ -7,18 +7,21 @@
 // Notice that you may not slant the container.
 var maxArea = function (height) {
     let tracker = {};
-    let max;
+    let max = 0;
     for (let i = 0; i < height.length; i++) {
         let curr = height[i];
         for (let j = 0; j < height.length; j++) {
             let next = height[j]
-            if (!tracker[curr * next]) {
-                tracker[curr * next] = 1
+            let total = curr * next;
+            console.log(total)
+            if (total > max) {
+                tracker[total] = 1
+                max = total
             }
         }
     }
-console.log(tracker)
-return max
+    console.log(tracker)
+    return max
 };
 // Input: height = [1,8,6,2,5,4,8,3,7]
 // Output: 49
