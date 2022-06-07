@@ -8,15 +8,15 @@
 var maxArea = function (height) {
     let tracker = {};
     let max = 0;
-    for (let i = 0; i < height.length; i++) {
+    for (let i = 0, w = 1; i < height.length; i++, w++) {
         let curr = height[i];
         for (let j = 0; j < height.length; j++) {
             let next = height[j]
-            let total = curr * next;
-            console.log(total)
-            if (total > max) {
-                tracker[total] = 1
-                max = total
+            if(j !== i){
+                if(next <= curr){
+                    max = (curr * w)
+                    console.log(max)
+                }
             }
         }
     }
