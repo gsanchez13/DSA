@@ -28,4 +28,25 @@ var maxArea = function (height) {
 // Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
 // Input: height = [1,1]
 // Output: 1
-maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7])
+let test1 = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+// maxArea(test1)
+
+var maxArea2 = function(height) {
+    let n = height.length;
+    let left= 0, area= 0;
+    let right= n-1;
+    
+    while(left<right){
+        if(height[left]<= height[right])
+        {  area= Math.max(area, height[left]*(right-left));
+            left++;
+        }
+        else
+        {  area= Math.max(area, height[right]*(right-left));
+            right--;
+        }
+    }
+    return area;
+};
+
+console.log(maxArea2(test1))
