@@ -6,5 +6,9 @@
 // Output: "bb"
 
 var longestPalindrome = function(s) {
-    
+    let ans = 0 ;
+    let tracker = "";
+    for(let i = 0; i < s.length; i++){
+        tracker += s[i]
+    }
 };
