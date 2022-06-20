@@ -23,3 +23,5 @@ var firstUniqChar = function(s) {
     }
     return -1
 };
+
+let test1 = "loveleetcode"
